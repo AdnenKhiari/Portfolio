@@ -1,95 +1,80 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+import React from 'react'
+import "./page.css"
+import AboutMe from './(sharedComponents)/AboutMe/AboutMe'
+import ContactUs from './(sharedComponents)/Contact/Contact'
+import Experience from './experience/(components)/Experience/Experience'
+import Education from './experience/(components)/Education/Education'
+import LatestProjects from './projects/(components)/LatestProjects'
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+  return <React.Fragment> 
+    <section className='hero box-container'>
+      <AboutMe/>
+    </section>
+    <section className='latest-proj box-container'>
+     <LatestProjects />
+    </section>
+    <div className='main-2 box-container'>
+      <section className='experience '>
+        <article className='professional boxed '>
+          <Experience />
+        </article>
+        <article className='education boxed'>
+          <Education/>
+        </article>
+        <article className='contact'>
+          <article className='boxed'>
+          <ContactUs />
+          </article>
+        </article>
+      </section>
+    </div>
+  </React.Fragment> 
+}
+
+
+function StyleGuide() {
+  return <React.Fragment> 
+      <p className="display-big">
+big heder
+      </p>
+      <p className="display-medium">
+        med
+      </p>      
+      <p className="display-small">
+          small
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <hr />
+      <p className="label">Label Here</p>
+      <a href="H">Hii XD</a>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam tempore beatae corrupti itaque unde commodi suscipit magni quia voluptate! Commodi rem, molestias deserunt animi asperiores porro. Dicta eligendi consectetur eum.</p>
+      <p className="p-bigger">Bigger Paragraph : Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, magnam sed ad natus sapiente deleniti quas cum quasi obcaecati fugiat provident dolor dignissimos tempora, aut dolores pariatur! Possimus, aut ea?</p>
+      <p className="p-light">light Paragraph : Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, magnam sed ad natus sapiente deleniti quas cum quasi obcaecati fugiat provident dolor dignissimos tempora, aut dolores pariatur! Possimus, aut ea?</p>
+      <p className="p-small">small Paragraph : Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, magnam sed ad natus sapiente deleniti quas cum quasi obcaecati fugiat provident dolor dignissimos tempora, aut dolores pariatur! Possimus, aut ea?</p>
+      <p className="p-tiny">tiny Paragraph : Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, magnam sed ad natus sapiente deleniti quas cum quasi obcaecati fugiat provident dolor dignissimos tempora, aut dolores pariatur! Possimus, aut ea?</p>
+      <hr />
+      <button>Btn1</button>
+      <button className='btn-bigger'>Btn1</button>
+      <blockquote>
+      The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.
+      </blockquote>
+      <div>
+      <Image height={500} width={600} src="https://assets-global.website-files.com/65282b5bb76b10cbb10454fe/65282b5bb76b10cbb1045591_placeholder%201.svg" alt=""></Image>
+      <figcaption>Image xD</figcaption>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <ul>
+      <li>Text 1 </li>
+      <li>Text 2 </li>
+      <li>Text 3 </li>
+      <li>Text 4 </li>
+      </ul>
+    </React.Fragment>
 }

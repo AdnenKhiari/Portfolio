@@ -1,0 +1,27 @@
+footer{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    padding: 0px 30px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}
+footer .footer-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+footer span{
+}
+footer a {
+    text-decoration: none;
+    opacity: 0.6;
+}

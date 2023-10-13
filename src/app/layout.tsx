@@ -1,8 +1,10 @@
+import "./normalize.css"
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Montserrat } from 'next/font/google'
+import NavBar from './(sharedComponents)/NavBar/NavBar'
+import Footer from './(sharedComponents)/Footer/Footer'
+const mont = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={mont.className}>
+        <NavBar></NavBar>
+          <div className="app-container">
+          {children}
+          </div>
+        <Footer></Footer>
+      </body>
     </html>
   )
 }

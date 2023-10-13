@@ -1,0 +1,14 @@
+.contact-form{
+    margin-top: 25px;
+}
+.contact-form .form-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+}
+.contact-form button{
+    margin: 20px 0px;
+}
+#contact{
+    max-width: 800px;
+}

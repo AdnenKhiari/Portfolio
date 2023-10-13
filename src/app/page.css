@@ -1,0 +1,20 @@
+.box-container{
+    padding: 0px 30px;
+    width: 100%;
+}
+.main-2{
+    background-color: var(--main-2);
+    width: 100%;
+    padding-top: 10px;
+}
+.boxed{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.contact{
+    background-color: var(--bg-secondary);
+    padding: 70px;
+}
+.latest-proj{
+    margin: 120px 0px;
+}
