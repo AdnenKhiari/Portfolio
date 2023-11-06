@@ -1,0 +1,64 @@
+.projects-list-container{
+    margin: 100px auto;
+    margin-bottom: 0px;
+    max-width: 1400px;
+}
+.projects-list-container > h1{
+    text-align: center;
+    margin: 80px auto;
+
+}
+.projects-list-container .projects-list-row{
+    display: grid;
+    grid-template-columns: 1.5fr  1fr ;
+}
+.projects-list-container .projects-list-row:nth-child(even){
+    grid-template-columns: 1fr  1.5fr;
+}
+.projects-list-container  hr{
+    margin: 0px 20px;
+    padding: 0px;
+    height: 3px;
+}
+.projects-list-container .projects-list-row .hr90 {
+    height: 100%;
+    width: 4px;
+}
+.projects-list-container .projects-list-row .small{
+    display: flex;
+    flex-direction: row;
+}
+
+.projects-list-container .projects-list-row .project-instance{
+    padding: 10px;
+    position: relative;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.projects-list-container .projects-list-row .project-instance * {
+    z-index: 1;
+}
+.projects-list-container .projects-list-row .project-instance h1{
+    width: 550px;
+}
+.projects-list-container .projects-list-row .project-instance h1.small{
+    width: 450px;
+}
+.projects-list-container .projects-list-row .project-instance img{
+    position: absolute;
+    top: 5%;
+    z-index: -1;
+    right: 10%;
+    border-radius: 10px;
+    opacity: 0.9;
+
+}
+.projects-list-container .projects-list-row .project-instance img.small{
+    position: static;
+}
+.projects-list-container .projects-list-row .project-instance a{
+    text-decoration: none;
+}

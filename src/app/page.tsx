@@ -9,6 +9,7 @@ import LatestProjects from './projects/(components)/LatestProjects'
 
 export default function Home() {
   return <React.Fragment> 
+    
     <section className='hero box-container'>
       <AboutMe/>
     </section>

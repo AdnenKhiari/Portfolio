@@ -44,6 +44,8 @@ header{
     top: 0;
     background-color: var(--primary-color);
     z-index: 100;
+    margin-top: 0px;
+    letter-spacing: 1px;
 }
 header a {
     font-size: 0.7rem;

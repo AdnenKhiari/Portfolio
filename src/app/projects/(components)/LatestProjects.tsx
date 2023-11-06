@@ -1,7 +1,20 @@
+"use client"
+
 import React from "react"
 import ProjectCard, { Project } from "./ProjectCard"
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
+import "./projectcad.css"
+import { useSpring } from "framer-motion"
 
 export default function LatestProjects() {
+
+    const targetRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+      target: targetRef,
+    });
+  
+    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-55%"]);
     const data : Project[] = [
         {
         id: 1,
@@ -16,11 +29,21 @@ export default function LatestProjects() {
         titre: "Projet 2",
         type: "small",
         url: "https://picsum.photos/600/300", 
+    },
+    {
+        id: 3,
+        description: "Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
+        titre: "Projet 2",
+        type: "big",
+        url: "https://picsum.photos/600/300", 
     }]
-    return <React.Fragment>
-        <h1>Latest Projects</h1>
-        <div className="project-card-container">
-        {data.map((item,index)=><ProjectCard {...item} key={index} />)}
+
+    return <section ref={targetRef} className="project-card-parent">
+        <div className="project-card-sticky">
+            <h1>Latest Projects</h1>
+            <motion.div  style={{x: x}} className="project-card-container">
+                {data.map((item,index)=><ProjectCard {...item} key={index} />)}
+            </motion.div>
         </div>
-    </React.Fragment>
+    </section>
 }

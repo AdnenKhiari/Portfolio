@@ -1,0 +1,12 @@
+.info-me p:last-child{
+    margin: 60px 0px;
+}
+.info-me * {
+    margin: 20px 0px;
+}
+.info-me{
+    margin: 80px auto;
+    max-width: 1200px;
+    text-align: center;
+    padding-bottom: 80px;
+}

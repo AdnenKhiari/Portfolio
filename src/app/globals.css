@@ -19,6 +19,10 @@ body{
   font-size: 16px;
   font-weight: 400;
   scroll-behavior: smooth;
+  background-color: white;
+}
+html, body { 
+  scroll-behavior: smooth
 }
 h1,h2,h3,h4,h5,h6{
   font-weight: normal;
@@ -46,7 +50,6 @@ h5{
 h6{
   font-weight: 500;
   font-size: 0.9rem;
-
 }
 .display-big{
   font-size: 4rem;
