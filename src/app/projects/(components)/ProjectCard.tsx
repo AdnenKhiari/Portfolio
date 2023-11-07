@@ -7,10 +7,14 @@ export interface Project {
     id: number,
     url: string,
     titre: string,
+    categorie: string,
     content?: string,
     description: string,
-    labels?: string[],
-    date?: Date,
+    longDescription?: string,
+    labels: string[],
+    insertionDate : Date,
+    lastUpdateDate: Date,
+    projectDate: Date,
     type: "big" | "small"
 
 }

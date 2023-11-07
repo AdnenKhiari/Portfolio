@@ -47,18 +47,87 @@
 .projects-list-container .projects-list-row .project-instance h1.small{
     width: 450px;
 }
-.projects-list-container .projects-list-row .project-instance img{
+.projects-list-container .projects-list-row .project-instance .img-container{
     position: absolute;
     top: 5%;
     z-index: -1;
     right: 10%;
     border-radius: 10px;
     opacity: 0.9;
+    overflow: hidden;
+
+    width: 500px;
+    height: 350px;
 
 }
-.projects-list-container .projects-list-row .project-instance img.small{
+.projects-list-container .projects-list-row .project-instance img{
+    position: relative;
+    transition: all 10s ease-in-out;
+}
+.projects-list-container .projects-list-row .project-instance:hover img{
+    animation: move 10s ease infinite alternate;
+    filter: grayscale(0.5);
+}
+.projects-list-container .projects-list-row .project-instance .img-container.small{
+    width: 400px;
+    height: 200px;
     position: static;
 }
 .projects-list-container .projects-list-row .project-instance a{
     text-decoration: none;
+    margin-right: 5px;
 }
+.projects-list-container .projects-list-row .project-instance .link{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+
+}
+.projects-list-container .projects-list-row .project-instance .link img{
+opacity: 0.3;
+transition: all 200ms ease;
+}
+.projects-list-container .projects-list-row .project-instance:hover .link img{
+    opacity: 1;
+    margin-left: 5px;
+    }
+
+@keyframes move {
+    0% {
+      -webkit-transform-origin: bottom left;
+      -moz-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      -o-transform-origin: bottom left;
+      transform-origin: bottom left;
+      transform: scale(1.0);
+      -ms-transform: scale(1.0);
+      /* IE 9 */
+      
+      -webkit-transform: scale(1.0);
+      /* Safari and Chrome */
+      
+      -o-transform: scale(1.0);
+      /* Opera */
+      
+      -moz-transform: scale(1.0);
+      /* Firefox */
+    }
+    20%{
+        transform: scale(1.05);    
+    }
+    100% {
+      transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      /* IE 9 */
+      
+      -webkit-transform: scale(1.2);
+      /* Safari and Chrome */
+      
+      -o-transform: scale(1.2);
+      /* Opera */
+      
+      -moz-transform: scale(1.2);
+      /* Firefox */
+    }
+  }

@@ -8,37 +8,41 @@ export default function Projects() {
   <br />
     <div className="projects-list-row">
       <div>
-        <ProjectInstance type="big" />
+        <ProjectInstance id="1" image="https://picsum.photos/600/600" title="Titre du projet Numero id" categorie="Type de projet" type="big" />
       </div>
       <div className="small">
         <hr className="hr90" />
-        <ProjectInstance type="small" />
+        <ProjectInstance id="2" image="https://picsum.photos/600/600" title="Titre du projet Numero id" categorie="Type de projet" type="small" />
       </div>
     </div>
     <hr />
     <br />
     <div className="projects-list-row">
       <div>
-        <ProjectInstance type="small" />
+      <ProjectInstance id="3" image="https://picsum.photos/600/600" title="Titre du projet Numero id" categorie="Type de projet" type="small" />
       </div>
       <div className="small">
         <hr className="hr90" />
-        <ProjectInstance type="big" />
+        <ProjectInstance id="4" image="https://picsum.photos/600/600" title="Titre du projet Numero id" categorie="Type de projet" type="big" />
       </div>
     </div>
     <Info/>
 
   </section>
 }
-function ProjectInstance({type}: {type: "small" | "big"}){
+function ProjectInstance({type,categorie,title,image,id}: {type: "small" | "big",categorie: string,title: string,image: string,id: string}){
   return <div className="project-instance">
-      <Image className={(type === "small" ? "small" : "")} src={"https://picsum.photos/600/600"} alt="lel" width={type === "small" ? 400 : 500} height={type === "small" ?  200 : 350}/>
-      <div>
-        <p className={"p-light " }>Type du projet</p>
-        <h1 className={(type === "small" ? "small display-small" : " display-medium ")}>Titre 1 du project SMARK de L'articualtion de greffe</h1>
+      <div className={(type === "small" ? "small" : "") + " img-container"}>
+      <Image  src={image} alt="lel" width={type === "small" ? 400 : 500} height={type === "small" ?  200 : 350}/>
+
       </div>
       <div>
-        <Link href={"/"}>Read More...</Link>
+        <p className={"p-light " }>{categorie}</p>
+        <h1 className={(type === "small" ? "small display-small" : " display-medium ")}>{title} 1 du project SMARK de L'articualtion de greffe</h1>
+      </div>
+      <div className="link">
+        <Link href={"/projects/"+id}>Read More </Link>
+        <Image width={25} height={25} src="/right-arrow.png" alt="" />
         {/* Double arrow link  + better bottom margin  */}
       </div>
   </div>

@@ -3,15 +3,20 @@ import React from 'react'
 import "./page.css"
 import AboutMe from './(sharedComponents)/AboutMe/AboutMe'
 import ContactUs from './(sharedComponents)/Contact/Contact'
+import TechStackIcons from './(sharedComponents)/TechStackIcons/TechStackIcons'
 import Experience from './experience/(components)/Experience/Experience'
 import Education from './experience/(components)/Education/Education'
 import LatestProjects from './projects/(components)/LatestProjects'
 
 export default function Home() {
+
   return <React.Fragment> 
     
     <section className='hero box-container'>
       <AboutMe/>
+    </section>
+    <section>
+    <TechStackIcons ></TechStackIcons>
     </section>
     <section className='latest-proj box-container'>
      <LatestProjects />

@@ -8,12 +8,25 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import "./style.css"
+
+
+export interface Experience{
+  id: string,
+  title: string,
+  company: string,
+  companyImg?: string,
+  startDate: string,
+  endDate?: string,
+  description: string
+}
+
 export default function TimeLine() {
 
-  const experiences = [
+  const experiences : Experience[]  = [
     {
       id: "1",
       title: "Title 1 ",
+      company: "random1",
       description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
       startDate: "11 Janv 2011",
       endDate: "12 Fev 2065"
@@ -23,13 +36,16 @@ export default function TimeLine() {
       title: "Title 2 ",
       description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
       startDate: "11 Janv 2011",
-      endDate: "12 Fev 2065"
+      endDate: "12 Fev 2065",
+      company: "random1"
     },
     {
       id: "3",
       title: "Title 3",
       description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
       startDate: "11 Janv 2011",
+      company: "random1",
+
       endDate: "12 Fev 2065"
     }
   ]

@@ -7,10 +7,14 @@ export default function ProjectView() {
   const data : Project = {
     id: 1,
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
+    longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
     titre: "Projet 1",
     type: "big",
+    categorie: "ML",
     url: "https://picsum.photos/1920/1080",
-    date: new Date(),
+    insertionDate: new Date(),
+    lastUpdateDate: new Date(),
+    projectDate: new Date(),
     labels: ["Data","W&B","Support Vector Machine","EDA"]
   }
     return <section className="project-instance">
@@ -23,7 +27,7 @@ export default function ProjectView() {
       </div>
       <div className="project-header">
       <div style={{display: "flex",width: "100%",justifyContent: "space-between"}}>
-        <p className="p-light">{data.date && data.date.toISOString()}</p>
+        <p className="p-light">{data.projectDate && data.projectDate.toISOString()}</p>
         <div className="label-container">
           {data.labels?.map((label,key)=><p className="label" key={key}>{label}</p>)}
         </div>
