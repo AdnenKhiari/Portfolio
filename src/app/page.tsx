@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import "./page.css"
@@ -8,7 +9,7 @@ import Experience from './experience/(components)/Experience/Experience'
 import Education from './experience/(components)/Education/Education'
 import LatestProjects from './projects/(components)/LatestProjects'
 
-export default function Home() {
+export default function Home() {  
 
   return <React.Fragment> 
     

@@ -11,10 +11,11 @@ export default function LatestProjects() {
 
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
-      target: targetRef,
+      target: targetRef
     });
-  
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-55%"]);
+    const con = useRef(null)
+    const mtx = useTransform(scrollYProgress, [0, 1], [1,-1200]);
+    const x = useSpring(mtx,{damping: 10})
     const data : Project[] = [
         {
         id: 1,
@@ -22,6 +23,13 @@ export default function LatestProjects() {
         titre: "Projet 1",
         type: "big",
         url: "https://picsum.photos/600/300", 
+        categorie: "Cat1",
+        labels: [],
+        insertionDate: new Date(),
+        projectDate: new Date(),
+        lastUpdateDate: new Date(),
+        content: "",
+        longDescription: "dzd"
     },
     {
         id: 2,
@@ -29,6 +37,13 @@ export default function LatestProjects() {
         titre: "Projet 2",
         type: "small",
         url: "https://picsum.photos/600/300", 
+        categorie: "Cat1",
+        labels: [],
+        insertionDate: new Date(),
+        projectDate: new Date(),
+        lastUpdateDate: new Date(),
+        content: "",
+        longDescription: "dzd"
     },
     {
         id: 3,
@@ -36,6 +51,13 @@ export default function LatestProjects() {
         titre: "Projet 2",
         type: "big",
         url: "https://picsum.photos/600/300", 
+        categorie: "Cat1",
+        labels: [],
+        insertionDate: new Date(),
+        projectDate: new Date(),
+        lastUpdateDate: new Date(),
+        content: "",
+        longDescription: "dzd"
     }]
 
     return <section ref={targetRef} className="project-card-parent">
