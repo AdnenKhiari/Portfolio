@@ -8,6 +8,7 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import "./style.css"
+import { motion } from 'framer-motion';
 
 
 export interface Experience{
@@ -50,10 +51,11 @@ export default function TimeLine() {
     }
   ]
 
+  const MotionTimelineItem = motion(TimelineItem)
+
   return (
     <Timeline className='timeline' position="alternate">
-    {experiences.map((exp,index)=><React.Fragment key={index}>
-      <TimelineItem>
+    {experiences.map((exp,index)=><MotionTimelineItem key={index}>
           <TimelineOppositeContent color="text.secondary">
             {exp.startDate} <br /> {exp.endDate}
           </TimelineOppositeContent>
@@ -64,8 +66,8 @@ export default function TimeLine() {
           <TimelineContent>
             <Review titre={exp.title} description={exp.description}/>
           </TimelineContent>
-        </TimelineItem>
-    </React.Fragment>)}
+        </MotionTimelineItem>
+    )}
     </Timeline>
   );
 }

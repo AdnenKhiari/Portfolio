@@ -16,9 +16,6 @@ export default function Home() {
     <section className='hero box-container'>
       <AboutMe/>
     </section>
-    <section>
-    <TechStackIcons ></TechStackIcons>
-    </section>
     <section className='latest-proj box-container'>
      <LatestProjects />
     </section>

@@ -6,6 +6,17 @@
     max-width: 1000px;
     margin-right:  80px;
     cursor: pointer;
+    height: 600px;
+}
+
+.project-card:hover img{
+    animation: move 10s ease infinite alternate;
+}
+.project-card:hover .image-container{
+    border: 1px solid #eee;
+}
+.project-card .image-container{
+    overflow: hidden;
 }
 .project-card a{
     text-decoration: none;
@@ -33,3 +44,42 @@
     top: 150px;
     overflow: hidden;
 }
+
+@keyframes move {
+    0% {
+      -webkit-transform-origin: bottom left;
+      -moz-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      -o-transform-origin: bottom left;
+      transform-origin: bottom left;
+      transform: scale(1.0);
+      -ms-transform: scale(1.0);
+      /* IE 9 */
+      
+      -webkit-transform: scale(1.0);
+      /* Safari and Chrome */
+      
+      -o-transform: scale(1.0);
+      /* Opera */
+      
+      -moz-transform: scale(1.0);
+      /* Firefox */
+    }
+    20%{
+        transform: scale(1.05);    
+    }
+    100% {
+      transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      /* IE 9 */
+      
+      -webkit-transform: scale(1.2);
+      /* Safari and Chrome */
+      
+      -o-transform: scale(1.2);
+      /* Opera */
+      
+      -moz-transform: scale(1.2);
+      /* Firefox */
+    }
+  }
