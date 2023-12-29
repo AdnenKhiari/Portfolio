@@ -7,7 +7,7 @@ import { getPicUrl } from '@/app/utils'
 import { Timestamp } from 'firebase/firestore'
 
 export interface Project {
-    id: number,
+    id: string,
     url: string,
     reference?: string,
     titre: string,
