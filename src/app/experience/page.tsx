@@ -5,8 +5,8 @@ import Info from "../(sharedComponents)/Info/Info";
 import { getFromFirestore } from "../utils";
 
 export default async function AllExperience() {
-  const experiences = await getFromFirestore("experiences")
-  const education = await getFromFirestore("education")
+  const experiences = await getFromFirestore("experiences","order")
+  const education = await getFromFirestore("education","order")
   
     return (
       <React.Fragment>

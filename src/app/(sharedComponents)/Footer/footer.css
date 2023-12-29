@@ -49,4 +49,20 @@ footer .icon-ls{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+    footer{
+        height: fit-content;
+    }
+    footer .social-pair{
+        margin: 10px 0px;
+    }
+    footer .icon-ls{
+        margin-left: 10px;
+    }
+    footer {
+        justify-content: space-around;
+    }
 }

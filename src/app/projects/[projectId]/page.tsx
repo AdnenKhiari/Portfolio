@@ -1,33 +1,58 @@
+
+'use client'
+
 import Image from 'next/image'
-import React from 'react'
-import { Project } from '../(components)/ProjectCard'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
+import { getDocFromFirestore, getPicUrl } from '@/app/utils'
+import { useParams } from "next/navigation";
+import { Project } from '../(components)/ProjectCard'
+import ReactLoading from 'react-loading'
 
 export default function ProjectView() {
-  const data : Project = {
-    id: 1,
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
-    longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
-    titre: "Projet 1",
-    type: "big",
-    categorie: "ML",
-    url: "https://picsum.photos/1920/1080",
-    insertionDate: new Date(),
-    lastUpdateDate: new Date(),
-    projectDate: new Date(),
-    labels: ["Data","W&B","Support Vector Machine","EDA"]
-  }
+
+  const params = useParams();
+  const { projectId } = params as any
+
+
+  // const data : Project = {
+  //   id: 1,
+  //   description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
+  //   longDescription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quisquam est provident a rem optio iste ipsum harum tempore sequi necessitatibus ratione culpa delectus praesentium voluptas placeat aliquam ex nobis.",
+  //   titre: "Projet 1",
+  //   type: "big",
+  //   categorie: "ML",
+  //   url: "https://picsum.photos/1920/1080",
+  //   insertionDate: new Date(),
+  //   lastUpdateDate: new Date(),
+  //   projectDate: new Date(),
+  //   labels: ["Data","W&B","Support Vector Machine","EDA"]
+  // }
+
+  const [data,setData] = useState<Project | null>(null)
+  const [img,setImage] = useState<string | null>(null)
+
+  useEffect(()=>{
+    getDocFromFirestore("projects/"+projectId).then((d)=>setData(d))
+  },[projectId])
+  useEffect(()=>{
+    if(data)
+    getPicUrl("PROJECTS/"+data.url).then((d)=>setImage(d as string))
+  },[data])
+  console.log(data)
+
+    if(data)
     return <section className="project-instance">
       <div className="project-instance-details">
         <h1 className='display-big'>{data.titre}</h1>
         <p className='p-light'>{data.description}</p>
       </div>
       <div className="img-container">
-        <Image src={data.url} fill  alt='img' />
+       { img && <Image src={img} fill  alt='img' />}
       </div>
       <div className="project-header">
       <div style={{display: "flex",width: "100%",justifyContent: "space-between"}}>
-        <p className="p-light">{data.projectDate && data.projectDate.toISOString()}</p>
+        <p className="p-light">{data.projectDate && data.projectDate.toDate().toISOString()}</p>
         <div className="label-container">
           {data.labels?.map((label,key)=><p className="label" key={key}>{label}</p>)}
         </div>
@@ -60,6 +85,10 @@ export default function ProjectView() {
       <p className="p-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dicta culpa doloribus, in laborum, assumenda vero numquam incidunt ea nulla non ipsam fugit minus quos sunt magni impedit vitae at?</p>
 
       </article>
-    </section>  
+    </section> 
+    
+    
+    return     <ReactLoading className='loader' type={"spinningBubbles"} color={"black"} height={'50%'} width={'100vw'} />
+
   }
   

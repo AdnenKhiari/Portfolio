@@ -9,14 +9,24 @@
   }
   
   .icon {
-    width: 50px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     /* position: absolute; */
   }
 .icon img{
   object-fit: contain;
+  width: 100%;
   transition: all 200ms ease;
 }
 .icon:hover img{
   transform: scale(1.1);
+}
+
+@media only screen and (max-width: 600px) {
+  .icon img{
+    object-fit: contain;
+  }
+  .react-multi-carousel-track {
+    height: 100px;
+  }
 }

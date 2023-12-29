@@ -8,8 +8,9 @@
     padding: 20px 0px;
 }
 .experience-card img{
-    align-self: center;
+    align-self: left;
     margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.558);
 }
 
 .experience-card .title{
@@ -31,4 +32,15 @@
 }
 .experience-container h2 + p{
     margin: 15px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .experience-card-container{
+        grid-template-columns: 1fr 1fr;
+
+        column-gap: 10px;
+    }
+    .experience-card {
+        max-height: 400px;
+    }
 }

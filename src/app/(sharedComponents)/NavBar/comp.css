@@ -51,3 +51,14 @@ header a {
     font-size: 0.7rem;
     font-weight: 600;
 }
+
+@media only screen and (max-width: 600px) {
+    header{
+        height: 200px;
+
+    }
+    nav ul{
+        margin: 0px;
+        padding: 0px;
+    }
+}

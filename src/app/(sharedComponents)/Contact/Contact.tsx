@@ -10,22 +10,18 @@ export default async function ContactUs() {
       <h3>Want to get in touch? <br />
       Drop me a line!</h3>
       {info && <p className="p-light">{info.sections.contact.text}</p>}
-      <form className='contact-form' action="">
+      <form className='contact-form' method="post" action={"mailto:"+info.sections.contact.mail+"?subject=PortfolioInquery"}>
       <div className='form-header'>
         <div className="input-group">
             <label htmlFor="name">Name</label>
-            <input placeholder='Your Name :)' type="name" id="name" />
-          </div>
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input placeholder='Enter your email' id="email" type="email" />
+            <input placeholder='Your Name :)' name="name" type="name" id="name" />
           </div>
       </div>
       <div className="input-group">
         <label htmlFor="form-text">Description</label>
-        <textarea placeholder='Enter Text !' name="text" id="form-text" cols={30} rows={9}></textarea>
+        <textarea placeholder='Enter Text !' name="form-text" id="form-text" cols={30} rows={9}></textarea>
       </div>
-      <button type='submit'>SUBMIT</button>
+      <button type='submit' >SUBMIT</button>
       </form>
     </section>
   }

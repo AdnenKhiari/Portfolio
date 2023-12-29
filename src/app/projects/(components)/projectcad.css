@@ -45,6 +45,11 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 600px) {
+
+}
+
+
 @keyframes move {
     0% {
       -webkit-transform-origin: bottom left;
