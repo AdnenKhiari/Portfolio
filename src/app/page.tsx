@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import "./page.css"
+import "./config.js"
 import AboutMe from './(sharedComponents)/AboutMe/AboutMe'
 import ContactUs from './(sharedComponents)/Contact/Contact'
 import TechStackIcons from './(sharedComponents)/TechStackIcons/TechStackIcons'

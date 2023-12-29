@@ -1,9 +1,6 @@
 .icon-container {
   overflow: hidden;
   width: 100%;
-  position: relative;
-  margin-top: -50px;
-  margin-bottom: 0px;
 }
   
   .icon-list {
@@ -13,7 +10,13 @@
   
   .icon {
     width: 50px;
-    height: 50px;
-    margin: 5px;
+    height: 60px;
     /* position: absolute; */
   }
+.icon img{
+  object-fit: contain;
+  transition: all 200ms ease;
+}
+.icon:hover img{
+  transform: scale(1.1);
+}
