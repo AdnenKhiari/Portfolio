@@ -2,7 +2,7 @@ import React from "react";
 import ExperienceCard, { Role } from "../ExperienceCard";
 import "../Experience/style.css"
 import "./style.css"
-export default function Education() {
+export default function Education({description}: {description: any}) {
 
   const data : Role[] = [
   {
@@ -31,7 +31,7 @@ export default function Education() {
     return (
       <div className="experience-container">
         <h2>My education</h2>
-        <p className="p-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus animi error explicabo veritatis. Suscipit quidem veniam obcaecati optio molestiae quisquam eligendi? Dolorem ad eveniet optio repellat fuga illum tenetur officiis.</p>
+        <p className="p-light">{description}</p>
         <div className="experience-card-container">{data.map((item,index)=><ExperienceCard {...item} key={index} />)}</div>
       </div>
     )

@@ -1,11 +1,15 @@
 import Image from 'next/image'
 import React from 'react'
 import "./style.css"
-export default function ContactUs() {
+import { getFromFirestore } from '@/app/utils'
+export default async function ContactUs() {
+
+  const info = await getFromFirestore("info").then((data)=>data[0] as any)
+  
     return <section id="contact">
       <h3>Want to get in touch? <br />
       Drop me a line!</h3>
-      <p className="p-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      {info && <p className="p-light">{info.sections.contact.text}</p>}
       <form className='contact-form' action="">
       <div className='form-header'>
         <div className="input-group">

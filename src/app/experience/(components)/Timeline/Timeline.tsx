@@ -13,58 +13,57 @@ import { motion } from 'framer-motion';
 
 export interface Experience{
   id: string,
+  role: string,
   title: string,
-  company: string,
-  companyImg?: string,
-  startDate: string,
-  endDate?: string,
+  icon?: string,
+  start: string,
+  end?: string,
   description: string
 }
 
-export default function TimeLine() {
+export default function TimeLine({experiences} : {experiences: any}) {
 
-  const experiences : Experience[]  = [
-    {
-      id: "1",
-      title: "Title 1 ",
-      company: "random1",
-      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
-      startDate: "11 Janv 2011",
-      endDate: "12 Fev 2065"
-    },
-    {
-      id: "2",
-      title: "Title 2 ",
-      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
-      startDate: "11 Janv 2011",
-      endDate: "12 Fev 2065",
-      company: "random1"
-    },
-    {
-      id: "3",
-      title: "Title 3",
-      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
-      startDate: "11 Janv 2011",
-      company: "random1",
-
-      endDate: "12 Fev 2065"
-    }
-  ]
+  // const experiences : Experience[]  = [
+  //   {
+  //     id: "1",
+  //     role: "Title 1 ",
+  //     title: "random1",
+  //     description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
+  //     start: "11 Janv 2011",
+  //     end: "12 Fev 2065"
+  //   },
+  //   {
+  //     id: "2",
+  //     role: "Title 2 ",
+  //     description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
+  //     start: "11 Janv 2011",
+  //     end: "12 Fev 2065",
+  //     title: "random1"
+  //   },
+  //   {
+  //     id: "3",
+  //     role: "Title 3",
+  //     description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa aperiam quaerat numquam reprehenderit debitis laborum eligendi aliquid ad eveniet perferendis ab, doloremque molestias harum corrupti ipsam quibusdam sunt in itaque!",
+  //     start: "11 Janv 2011",
+  //     title: "random1",
+  //     end: "12 Fev 2065"
+  //   }
+  // ]
 
   const MotionTimelineItem = motion(TimelineItem)
 
   return (
     <Timeline className='timeline' position="alternate">
-    {experiences.map((exp,index)=><MotionTimelineItem key={index}>
+    {experiences.map((exp: any,index: number)=><MotionTimelineItem key={index}>
           <TimelineOppositeContent color="text.secondary">
-            {exp.startDate} <br /> {exp.endDate}
+            {exp.start} <br /> {exp.end}
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
-            <Review titre={exp.title} description={exp.description}/>
+            <Review role={exp.role} titre={exp.title} description={exp.description}/>
           </TimelineContent>
         </MotionTimelineItem>
     )}
@@ -72,9 +71,12 @@ export default function TimeLine() {
   );
 }
 
-const Review = ({titre,description}: {titre: string,description: string})=>{
+const Review = ({titre,role,description}: {titre: string,role: string,description: string[]})=>{
   return <div className='experience-review-container'>
-    <h3>{titre}</h3>
-    <p className="p-light">{description}</p>
+    <h3>
+      {role}<br/>
+      <p className='subtitle'>{titre}</p>
+      </h3>
+    {description && description.map((e,index)=><p key={index} className="p-light">{e}</p>)}
   </div>
 }

@@ -5,7 +5,8 @@ import "./style.css"
 import { AnimatePresence, motion, stagger, useInView } from 'framer-motion';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { getDownloadURL, getStorage, ref,listAll, ListResult } from 'firebase/storage'
+import { getDownloadURL, ref,listAll, ListResult } from 'firebase/storage'
+import { storage } from '@/app/config';
 
 
 const carouselVariant ={
@@ -19,9 +20,7 @@ function getOffset( el : any ) {
 }
 
 
-
 const getIcons =  async ()=>{
-  const storage = getStorage()
   const rr = ref(storage,"/ICONS")
   const listprefixes : ListResult = await listAll(rr)
   const list  = await Promise.all(listprefixes.prefixes.map((prefix)=>{return listAll(ref(storage,prefix.fullPath))})).then((arr : ListResult[])=>{return  arr.map((i)=>i.items).flat(1)} )

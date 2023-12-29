@@ -1,21 +1,21 @@
-"use client"
 import Image from 'next/image'
 import React from 'react'
 import "./page.css"
-import "./config.js"
 import AboutMe from './(sharedComponents)/AboutMe/AboutMe'
 import ContactUs from './(sharedComponents)/Contact/Contact'
-import TechStackIcons from './(sharedComponents)/TechStackIcons/TechStackIcons'
 import Experience from './experience/(components)/Experience/Experience'
 import Education from './experience/(components)/Education/Education'
 import LatestProjects from './projects/(components)/LatestProjects'
+import { getFromFirestore } from './utils'
+import ReactLoading from 'react-loading';
 
-export default function Home() {  
 
+
+const Content = ({info} : {info: any})=>{
   return <React.Fragment> 
     
     <section className='hero box-container'>
-      <AboutMe/>
+      <AboutMe details={info.sections.header} />
     </section>
     <section className='latest-proj box-container'>
      <LatestProjects />
@@ -23,10 +23,10 @@ export default function Home() {
     <div className='main-2 box-container'>
       <section className='experience '>
         <article className='professional boxed '>
-          <Experience />
+          <Experience description={info.sections.experience} />
         </article>
         <article className='education boxed'>
-          <Education/>
+          <Education description={info.sections.education}/>
         </article>
         <article className='contact'>
           <article className='boxed'>
@@ -36,6 +36,15 @@ export default function Home() {
       </section>
     </div>
   </React.Fragment> 
+}
+
+export default async function Home() {  
+  const info = await getFromFirestore("info").then((data)=>data[0])
+  if(info == null){
+    return  <ReactLoading className='loader' type={"spinningBubbles"} color={"black"} height={'100%'} width={'100vw'} />
+  }else{
+    return <Content info={info}></Content>
+  }
 }
 
 

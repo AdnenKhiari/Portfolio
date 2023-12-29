@@ -25,3 +25,28 @@ footer a {
     text-decoration: none;
     opacity: 0.6;
 }
+
+footer .social-pair{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0px;
+    margin-left: 20px;
+}
+footer .social-pair img{
+    margin-right: 10px;
+    opacity: 0.85;
+}
+footer a {
+    opacity: 1;
+}
+footer a span {
+    opacity: 0.6 !important;
+}
+footer .icon-ls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
