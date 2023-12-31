@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { getDownloadURL, ref,listAll, ListResult } from 'firebase/storage'
 import { storage } from '@/app/config';
+import useWindowDimensions from './useWindow';
 
 
 const carouselVariant ={
@@ -44,6 +45,7 @@ export default function TechStackIcons() {
   useEffect(()=>{
     console.log("W",window)
     setSize(getOffset(ref?.current))
+    if(window)
     setMaxIcons(Math.floor((window.width ?? 0) / 140))
 
   },[window,ref])
@@ -137,33 +139,3 @@ const TechIcon = ({icon,maxIcons,index} : {icon:any,maxIcons:number,index: numbe
   </motion.div> 
 }
 
-
-function getWindowDimensions() {
-  if(window){
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-  }else{
-    return {
-      width: null,
-      height: null
-    };
-  }
-
-}
-
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowDimensions;
-}

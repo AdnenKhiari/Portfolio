@@ -40,11 +40,7 @@ const Content = ({info} : {info: any})=>{
 
 export default async function Home() {  
   const info = await getFromFirestore("info").then((data)=>data[0])
-  if(info == null){
-    return  <ReactLoading className='loader' type={"spinningBubbles"} color={"black"} height={'100%'} width={'100vw'} />
-  }else{
-    return <Content info={info}></Content>
-  }
+  return <Content info={info}></Content>
 }
 
 
