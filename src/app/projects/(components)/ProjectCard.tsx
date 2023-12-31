@@ -18,8 +18,6 @@ export interface Project {
     description: string,
     longDescription?: string,
     labels: string[],
-    insertionDate : Timestamp,
-    lastUpdateDate: Timestamp,
     projectDate: Timestamp,
     type: "big" | "small"
 }

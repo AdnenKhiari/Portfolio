@@ -1,6 +1,6 @@
 
 'use client'
-
+import parse from 'html-react-parser';
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { getDocFromFirestore, getPicUrl } from '@/app/utils'
@@ -8,7 +8,27 @@ import { useParams } from "next/navigation";
 import { Project } from '../(components)/ProjectCard'
 import Loading from '@/app/(sharedComponents)/TechStackIcons/loading'
 import "./style.css"
+import { motion } from 'framer-motion';
 
+const container_2 = {
+  initial: { },
+  animate: {
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+}
+const item = {
+  initial:{
+      y: "-30%",
+      opacity: 0
+  }, 
+  animate:{
+      y: "0%",
+      opacity: 1,
+      transition: {duration: 0.3}
+  }
+}
 export default function ProjectView() {
 
   const params = useParams();
@@ -44,21 +64,26 @@ export default function ProjectView() {
     if(data)
     return <section className="project-instance">
       <div className="project-instance-details">
-        <h1 className='display-big'>{data.titre}</h1>
-        <p className='p-light'>{data.description}</p>
+        <motion.h1 initial={{opacity: 0,y:"40%"}} animate={{opacity:1,y: "0%",transition: {delay: 0.1,duration: 0.5}}}  className='display-big'>{data.titre}</motion.h1>
+        <motion.p initial={{opacity: 0,y:"40%"}} animate={{opacity:1,y: "0%",transition: {delay: 1,duration: 0.5}}}  className='p-light'>{data.longDescription}</motion.p>
       </div>
       <div className="img-container">
        { img && <Image src={img} fill  alt='img' />}
       </div>
       <div className="project-header">
       <div style={{display: "flex",width: "100%",justifyContent: "space-between"}}>
-        <p className="p-light">{data.projectDate && data.projectDate.toDate().toISOString()}</p>
-        <div className="label-container">
-          {data.labels?.map((label,key)=><p className="label" key={key}>{label}</p>)}
-        </div>
+        <p className="p-light">{data.projectDate && data.projectDate.toDate().toDateString()}</p>
+        {data.labels?.length > 0 && <motion.div viewport={{once: true}} variants={container_2} whileInView="animate" initial="initial" className="label-container">
+          {data.labels?.map((label,key)=><motion.p variants={item} className="label" key={key}>{label}</motion.p>)}
+        </motion.div>}
       </div>
       </div>
       <article>
+        {data.content && parse(data.content)}
+      </article>
+
+      
+      {/* <article>
 
       <p className="p-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dicta culpa doloribus, in laborum, assumenda vero numquam incidunt ea nulla non ipsam fugit minus quos sunt magni impedit vitae at?</p>
       <h2>Title 2 : </h2>
@@ -84,7 +109,9 @@ export default function ProjectView() {
       <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, eaque perspiciatis temporibus dignissimos ratione ut aut doloremque laborum culpa nulla voluptatem corrupti saepe incidunt, delectus debitis atque, quis labore reiciendis?</blockquote>
       <p className="p-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dicta culpa doloribus, in laborum, assumenda vero numquam incidunt ea nulla non ipsam fugit minus quos sunt magni impedit vitae at?</p>
 
-      </article>
+      </article> */}
+    
+    
     </section> 
     
     

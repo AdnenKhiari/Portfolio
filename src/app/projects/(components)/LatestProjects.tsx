@@ -21,7 +21,7 @@ export default function LatestProjects() {
     useEffect(()=>{
         getFromFirestore("projects","order").then((d)=>{
             console.log(d)
-            setData(d as Project[])
+            setData(d.slice(0,3) as Project[])
         })
     },[])
 
