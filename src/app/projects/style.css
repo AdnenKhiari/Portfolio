@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: 1.5fr  1fr ;
 }
-.projects-list-container .projects-list-row:nth-child(even){
+.projects-list-container .projects-list-row:nth-child(odd){
     grid-template-columns: 1fr  1.5fr;
 }
 .projects-list-container  hr{

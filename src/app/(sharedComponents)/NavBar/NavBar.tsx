@@ -13,12 +13,12 @@ export default function NavBar() {
     { text: 'Home', href: '/' },
     { text: 'Projects', href: '/projects' },
     { text: 'Experience', href: '/experience' },
-    { text: 'Contact', href: '/#contact' }
+    { text: 'Contact', href: '/#contact',scroll: true }
   ];
 
   return <header>
     <div className="logo">
-      <Link href={""}><Image width={100} height={100} src="logo-1/logo-color.svg" alt="" /></Link>
+      <Link href={"/"}><Image width={100} height={100} src="logo-1/logo-color.svg" alt="" /></Link>
     </div>
     <nav className="navigation">
       <ul>
@@ -27,6 +27,7 @@ export default function NavBar() {
           <li key={link.href}>
             <Link
               href={link.href}
+              scroll={link.scroll ?? true}
               className={pathname === link.href ? 'active' : ''}
             >
               {link.text}

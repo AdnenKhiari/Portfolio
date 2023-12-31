@@ -3,11 +3,11 @@
 
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import "./style.css"
 import { getDocFromFirestore, getPicUrl } from '@/app/utils'
 import { useParams } from "next/navigation";
 import { Project } from '../(components)/ProjectCard'
-import ReactLoading from 'react-loading'
+import Loading from '@/app/(sharedComponents)/TechStackIcons/loading'
+import "./style.css"
 
 export default function ProjectView() {
 
@@ -88,7 +88,7 @@ export default function ProjectView() {
     </section> 
     
     
-    return     <ReactLoading className='loader' type={"spinningBubbles"} color={"black"} height={'50%'} width={'100vw'} />
+    return   < Loading/>
 
   }
   

@@ -5,6 +5,8 @@ import "./projectcad.css"
 import Link from 'next/link'
 import { getPicUrl } from '@/app/utils'
 import { Timestamp } from 'firebase/firestore'
+import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 
 export interface Project {
     id: string,
@@ -20,24 +22,27 @@ export interface Project {
     lastUpdateDate: Timestamp,
     projectDate: Timestamp,
     type: "big" | "small"
-
 }
 
 export default function ProjectCard(project : Project) {
-
+ 
+    const router = useRouter()
+ 
     const [iconUrl,setIconUrl] = useState<string | null>(null) 
     useEffect(()=>{
         if(project.url) 
             getPicUrl("PROJECTS/"+project.url).then((d)=>setIconUrl(d as string))
     },[project])
-
-    return <div className="project-card">
+    
+    return <div className="project-card" onClick={()=>router.push(`/projects/${project.id}`, { scroll: true })}>
         <Link href={`/projects/${project.id}`}>
             <div className="image-container" style={{width: project.type === "small" ? 600 : 1000,height: 450}}>
             {iconUrl && <Image src={iconUrl} height={450} width={project.type === "small" ? 600 : 1000} alt='project' />}
             </div>
         </Link>
         <Link href={`/projects/${project.id}`}>{project.titre}</Link>
-        <p className="p-light">{project.description}</p>
+        <motion.p
+        initial={{y: "60%",opacity: 0}} viewport={{once: true}}  whileInView={{opacity:1,y:"0%",transition: {duration: 0.3,delay: 0.1}}}
+        className="p-light">{project.description}</motion.p>
     </div>
 }
