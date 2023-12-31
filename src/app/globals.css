@@ -200,3 +200,9 @@ input:focus,input:active,textarea:active,textarea:focus{
   width:30%;
   height: 30%;
 }
+a,button{
+  transition: all 200ms ease;
+}
+a,button:active{
+  transform:  scale(0.9);
+}

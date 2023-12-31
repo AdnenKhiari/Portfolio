@@ -8,9 +8,54 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import "./style.css"
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 
 
+const container_v : Variants ={
+    initial: {
+      scale: 0.9,
+    },
+    animate : {
+      scale: 1,
+      transition : {
+        staggerChildren: 0.2
+      }
+    }
+}
+
+const dot_v : Variants ={
+  initial: {
+    scale: 0
+  },
+  animate : {
+    scale: 1,
+    transition: {
+      duration: 0.3
+    }
+  }
+}
+const reveal_v : Variants ={
+  initial: {
+    opacity: 0,
+    x: "-20%"
+  },
+  animate : {
+    opacity: 1,
+    x: "0%"  
+  }
+}
+const line_v : Variants ={
+  initial: {
+    scaleY: 0,
+    transformOrigin: "top left"
+  },
+  animate : {
+    scaleY: 1,
+    transition: {
+      duration: 1
+    }
+  }
+}
 export interface Experience{
   id: string,
   role: string,
@@ -49,25 +94,31 @@ export default function TimeLine({experiences} : {experiences: any}) {
   //     end: "12 Fev 2065"
   //   }
   // ]
+  const MotionTimeline = motion(Timeline)
 
   const MotionTimelineItem = motion(TimelineItem)
+  const MotionTimelineOppositeContent= motion(TimelineOppositeContent)
+  const MotionTimelineSeparator = motion(TimelineSeparator)
+  const MotionTimelineDot = motion(TimelineDot)
+  const MotionTimelineConnector= motion(TimelineConnector)
+  const MotionTimelineContent= motion(TimelineContent)
 
   return (
-    <Timeline className='timeline' position="alternate">
-    {experiences.map((exp: any,index: number)=><MotionTimelineItem key={index}>
+    <MotionTimeline variants={container_v} viewport={{margin:"-50px"}}   whileInView="animate" initial="initial" className='timeline' position="alternate">
+    {experiences.length > 0 && experiences.map((exp: any,index: number)=><MotionTimelineItem key={index}>
           <TimelineOppositeContent color="text.secondary">
-            {exp.start} <br /> {exp.end}
+          < motion.div variants={reveal_v}>{exp.start} <br /> {exp.end}</motion.div>  
           </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
+          <MotionTimelineSeparator>
+            <MotionTimelineDot variants={dot_v} />
+            <MotionTimelineConnector variants={line_v} />
+          </MotionTimelineSeparator>
+          <MotionTimelineContent variants={reveal_v}>
             <Review role={exp.role} titre={exp.title} description={exp.description}/>
-          </TimelineContent>
+          </MotionTimelineContent>
         </MotionTimelineItem>
     )}
-    </Timeline>
+    </MotionTimeline>
   );
 }
 

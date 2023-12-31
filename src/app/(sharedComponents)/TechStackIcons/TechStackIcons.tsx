@@ -10,11 +10,6 @@ import { storage } from '@/app/config';
 import useWindowDimensions from './useWindow';
 
 
-const carouselVariant ={
-  initial:{scale: 0,x: 150},
-  animate:  (data: any) => ({scale: 1, transition: {scale: {duration: 1}, ease: 'linear', repeat: 0 } }),
-}
-
 function getOffset( el : any ) {
   let data = el.getBoundingClientRect()
   return data;
@@ -41,6 +36,7 @@ export default function TechStackIcons() {
   const [maxIcons,setMaxIcons] = useState(13)
   const ref = useRef(null)
  
+  const MotionCarousel = motion(Carousel)
 
   useEffect(()=>{
     console.log("W",window)
@@ -75,7 +71,12 @@ export default function TechStackIcons() {
 
   // const [icons,setIcons] = useState(["/python.png","/bg.png","/kaggle.png"])
   return (
-    <div className="icon-container"         ref={ref}
+    <motion.div className="icon-container"      
+    
+    initial={{opacity: 0}}
+    animate={{opacity: 1,transition: {delay: 1.5}}}
+    
+    ref={ref}
     >
 
       <Carousel 
@@ -121,21 +122,20 @@ export default function TechStackIcons() {
         ))}
       </Carousel> 
 
-    </div>
+    </motion.div>
   );
 }
 
 const TechIcon = ({icon,maxIcons,index} : {icon:any,maxIcons:number,index: number})=>{
-  return  <motion.div     
+  return  <div     
   className="icon"
-  custom={{index,maxIcons}}
-  variants={carouselVariant}
+
   >
   <Image
     src={icon[0]["url"]}
     width={100}
     height={100}
     alt={`Tech Icon`} />
-  </motion.div> 
+  </div> 
 }
 

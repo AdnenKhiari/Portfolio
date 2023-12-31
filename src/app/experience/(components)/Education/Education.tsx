@@ -1,9 +1,23 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import ExperienceCard, { Role } from "../ExperienceCard";
 import "../Experience/style.css"
 import "./style.css"
 import { getFromFirestore } from "@/app/utils";
-export default async function Education({description}: {description: any}) {
+import { Variants, motion } from "framer-motion";
+
+
+const variants : Variants= {
+  ani : {
+
+    transition: {
+      staggerChildren: 0.5,
+      staggerDirection: -1
+    }
+  }
+}
+
+export default function Education({description}: {description: any}) {
 
   // const data : Role[] = [
   // {
@@ -28,13 +42,17 @@ export default async function Education({description}: {description: any}) {
   //   start : "Jan 12",
   //   end: "Fev 2023"
   // }]
-  const experiences = await getFromFirestore("education","order")
 
+  const [experiences,setExperiences] = useState([])
+  useEffect(()=>{
+    getFromFirestore("education","order").then((d)=>setExperiences(d as any))
+  },[])
     return (
       <div className="experience-container">
-        <h2>My education</h2>
+        <motion.h2 initial={{x: "-20%",opacity: 0.2}} whileInView={{opacity:1,x:"0%",transition: {delay: 0.1,duration: 0.5}}}>My education</motion.h2>
         <p className="p-light">{description}</p>
-        <div className="experience-card-container">{experiences.map((item,index)=><ExperienceCard {...item} key={index} />)}</div>
+        {experiences.length > 0 && <motion.div variants={variants} viewport={{ once: true }}
+ whileInView={"ani"}  initial="init" className="experience-card-container">{experiences.map((item: Role,index)=><ExperienceCard {...item} key={index} />)}</motion.div>}
       </div>
     )
   }

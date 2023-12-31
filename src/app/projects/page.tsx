@@ -53,7 +53,7 @@ async function  ProjectInstance({type,categorie,title,image,id}: {type: "small" 
       </div>
       <div>
         <p className={"p-light " }>{categorie}</p>
-        <h1 className={(type === "small" ? "small display-small" : " display-medium ")}>{title} 1 du project SMARK de L'articualtion de greffe</h1>
+        <h1 className={(type === "small" ? "small display-small" : " display-medium ")}>{title} 1 du project SMARK de L&apos;articualtion de greffe</h1>
       </div>
       <div className="link">
         <Link href={"/projects/"+id}>Read More </Link>

@@ -1,8 +1,9 @@
+
 import React from "react";
-import TimeLine from "./(components)/Timeline/Timeline";
 import "./style.css"
 import Info from "../(sharedComponents)/Info/Info";
 import { getFromFirestore } from "../utils";
+import ExperienceMain from "./(components)/ExperienceMain";
 
 export default async function AllExperience() {
   const experiences = await getFromFirestore("experiences","order")
@@ -10,14 +11,7 @@ export default async function AllExperience() {
   
     return (
       <React.Fragment>
-          <div className="education-exp-container">
-            <h1 className="display-big">Experiences</h1>
-            { experiences && <TimeLine experiences={experiences} />}
-          </div>
-          <div className="education-exp-container">
-            <h1 className="display-big">Education</h1>
-            { education && <TimeLine experiences={education} />}
-          </div>
+          <ExperienceMain experiences={experiences} education ={education}></ExperienceMain>
           <Info></Info>
       </React.Fragment>
     )

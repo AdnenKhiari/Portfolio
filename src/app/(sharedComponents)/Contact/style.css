@@ -22,3 +22,6 @@
 #contact{
     max-width: 800px;
 }
+.contact-form input,.contact-form textarea{
+    transform-origin: top left;
+}
