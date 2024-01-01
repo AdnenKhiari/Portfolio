@@ -68,7 +68,7 @@ export default function ProjectView() {
         <motion.p initial={{opacity: 0,y:"40%"}} animate={{opacity:1,y: "0%",transition: {delay: 1,duration: 0.5}}}  className='p-light'>{data.longDescription}</motion.p>
       </div>
       <div className="img-container">
-       { img && <Image src={img} fill  alt='img' />}
+       { img && <Image priority src={img} fill  alt='img' />}
       </div>
       <div className="project-header">
       <div style={{display: "flex",width: "100%",justifyContent: "space-between"}}>

@@ -104,7 +104,7 @@ export default function TimeLine({experiences} : {experiences: any}) {
   const MotionTimelineContent= motion(TimelineContent)
 
   return (
-    <MotionTimeline variants={container_v} viewport={{margin:"-50px"}}   whileInView="animate" initial="initial" className='timeline' position="alternate">
+    <MotionTimeline variants={container_v} viewport={{margin:"-50px",once: true}}   whileInView="animate" initial="initial" className='timeline' position="alternate">
     {experiences.length > 0 && experiences.map((exp: any,index: number)=><MotionTimelineItem key={index}>
           <TimelineOppositeContent color="text.secondary">
           < motion.div variants={reveal_v}>{exp.start} <br /> {exp.end}</motion.div>  
