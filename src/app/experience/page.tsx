@@ -4,7 +4,7 @@ import "./style.css"
 import Info from "../(sharedComponents)/Info/Info";
 import { getFromFirestore } from "../utils";
 import ExperienceMain from "./(components)/ExperienceMain";
-
+export const revalidate = 60
 export default async function AllExperience() {
   const experiences = await getFromFirestore("experiences","order")
   const education = await getFromFirestore("education","order")

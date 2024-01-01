@@ -19,6 +19,7 @@ export interface Project {
     longDescription?: string,
     labels: string[],
     projectDate: Timestamp,
+    lastUpdateDate: Timestamp
     type: "big" | "small"
 }
 

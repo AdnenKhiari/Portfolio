@@ -37,6 +37,7 @@ const Content = ({info} : {info: any})=>{
     </div>
   </React.Fragment> 
 }
+export const revalidate = 60
 
 export default async function Home() {  
   const info = await getFromFirestore("info").then((data)=>data[0])

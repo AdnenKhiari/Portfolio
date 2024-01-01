@@ -1,5 +1,7 @@
 import "./style.css"
 import { getFromFirestore } from "@/app/utils"
+export const revalidate = 60
+
 export default async function Info() {
 
   const info = await getFromFirestore("info").then((data)=>data[0] as any)

@@ -4,6 +4,10 @@ import React from "react";
 import ProjectGrid from "./(components)/ProjectGrid";
 import { getFromFirestore } from "../utils";
 import { Project } from "./(components)/ProjectCard";
+
+export const revalidate = 60
+
+
 function groupSuccessivePairs(array: Project[]) {
   let groupedArray = [];
   
@@ -13,6 +17,7 @@ function groupSuccessivePairs(array: Project[]) {
   
   return groupedArray;
 }
+
 export default async function Projects() {
 
   const data = (await getFromFirestore("projects","order")) as Project[]

@@ -1,8 +1,8 @@
 "use server"
-import Link from "next/link";
 import Image from "next/image"
 import "./footer.css"
-import { getFromFirestore, getPicUrl } from "@/app/utils";
+import { getFromFirestore } from "@/app/utils";
+import Social from "./Social";
 
 export default async function Footer() {
 
@@ -20,13 +20,4 @@ export default async function Footer() {
         })}
       </div>
     </footer>
-}
-  
-const Social = async ({soc}: {soc: any})=>{
-  const iconUrl = await  getPicUrl("SOCIAL/"+soc.icon)
-
-  return <Link rel="noopener noreferrer" target="_blank"  href={soc.url} className="social-pair" >
-    {iconUrl && <Image src={iconUrl} width={20} height={20} alt={soc.label} />}
-    <span>{soc.label}</span>
-  </Link>
 }
