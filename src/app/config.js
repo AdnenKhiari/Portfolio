@@ -2,6 +2,7 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from 'firebase/storage'
+import { getAnalytics, isSupported } from "firebase/analytics";
 
 export const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,3 +17,11 @@ export const firebaseConfig = {
 let firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 export const storage = getStorage(firebase_app)
 export const db = getFirestore(firebase_app)
+
+export const analytics = async ()=>{
+    const result = await isSupported()
+    if (result) {
+        return getAnalytics(app);
+    }
+    throw Error("Unsupported Analytics in this Env")
+}

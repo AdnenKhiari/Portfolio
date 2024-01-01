@@ -6,6 +6,8 @@ import { Montserrat } from 'next/font/google'
 import NavBar from './(sharedComponents)/NavBar/NavBar'
 import Footer from './(sharedComponents)/Footer/Footer'
 import AnimatedCursor from "react-animated-cursor"
+import Script from 'next/script'
+import {firebaseConfig} from "./config"
 const mont = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,6 +23,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mont.className}>
+      <div className="container">
+    <Script src={"https://www.googletagmanager.com/gtag/js?id="+firebaseConfig.measurementId}  />
+    <Script id="google-analytics">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${firebaseConfig.measurementId}');
+      `}
+    </Script>
+  </div>
       <AnimatedCursor    
         innerSize={8}
         outerSize={35}
