@@ -48,7 +48,7 @@ export default function ExperienceCard(exp:Role) {
         getPicUrl("EXPERIENCE/"+exp.icon).then((d)=>setIcon(d as any))
     },[exp])
     return <motion.div variants={item_variants} className="experience-card">
-        { iconUrl && <Image src={iconUrl} alt='img' width={100} height={100}  />}
+        { iconUrl && <Image src={iconUrl} alt={"Places i worked in or studied in"} width={100} height={100}  />}
         <p className='title' style={{fontWeight: "600"}}>{exp.role}</p>
         <p className='p-light' style={{fontWeight: "500"}}  >{exp.title}</p>
         <motion.p variants={small_v}  className='p-light p-tiny' style={{fontWeight: "500",fontStyle: "italic"}}>{exp.start}{ exp.end &&  (" -- " + exp.end)}</motion.p>

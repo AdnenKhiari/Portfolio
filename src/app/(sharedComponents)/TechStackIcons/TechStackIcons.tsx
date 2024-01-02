@@ -135,7 +135,7 @@ const TechIcon = ({icon,maxIcons,index} : {icon:any,maxIcons:number,index: numbe
     src={icon[0]["url"]}
     width={100}
     height={100}
-    alt={`Tech Icon`} />
+    alt={`Tech Technology Icon that reflects my experience`} />
   </div> 
 }
 

@@ -1,0 +1,14 @@
+{
+    "name": "Adnen Khiari Tech Portfolio",
+    "short_name": "AdnenKh Portfolio",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "display": "minimal-ui",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "icons": {
+        "src": "/logo-1/logo-color.svg",
+        "type": "image/svg+xml"
+    }
+}

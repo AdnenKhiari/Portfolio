@@ -48,8 +48,8 @@ export default function AboutMe({details}: {details: any}) {
     animate="show"
      className='about-me'>
         <div className='bg-about'>
-            <motion.p variants={item} >{details.title}</motion.p>
-            <motion.p variants={item} className='p-light'>{details.secondary}</motion.p>
+            <h2 style={{margin: "0px",padding: "0px","lineHeight": "0px"}}><motion.p variants={item} >{details.title}</motion.p></h2>
+            <h1 style={{margin: "0px",padding: "0px","lineHeight": "0px"}}><motion.p variants={item} className='p-light'>{details.secondary}</motion.p></h1>
             <motion.h1 variants={container_2} className='display-big'><motion.span variants={item_2}>{details.main_headline}</motion.span> <br /> <motion.span variants={item_2}>{details.secondary_headline}</motion.span></motion.h1>
         </div>
         <TechStackIcons ></TechStackIcons>

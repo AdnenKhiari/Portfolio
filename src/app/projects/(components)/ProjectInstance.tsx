@@ -9,7 +9,7 @@ export default async function  ProjectInstance({type,categorie,title,image,id}: 
   
   return <div className="project-instance">
       <div className={(type === "small" ? "small" : "") + " img-container"}>
-      {iconUrl && <Image  src={iconUrl} alt="lel" width={type === "small" ? 400 : 500} height={type === "small" ?  200 : 350}/>}
+      {iconUrl && <Image  src={iconUrl} alt="Projects i did or collaborated at" width={type === "small" ? 400 : 500} height={type === "small" ?  200 : 350}/>}
 
       </div>
       <div>
@@ -18,7 +18,7 @@ export default async function  ProjectInstance({type,categorie,title,image,id}: 
       </div>
       <div className="link">
         <Link href={"/projects/"+id}>Read More </Link>
-        <Image width={25} height={25} src="/right-arrow.png" alt="" />
+        <Image width={25} height={25} src="/right-arrow.png" alt="Projects i did or collaborated at" />
         {/* Double arrow link  + better bottom margin  */}
       </div>
   </div>

@@ -10,9 +10,76 @@ import Script from 'next/script'
 import {firebaseConfig} from "./config"
 const mont = Montserrat({ subsets: ['latin'] })
 
+
+const metadata_values = {
+  title: 'Adnen Khiari Data Science | Software Engineering student Tech Portfolio',
+  description: "I'm a Data Science | Software Engineering student , Eager to learn and work on projects !",
+  author: "Adnen Khiari",
+  authorWebsite: "https://github.com/AdnenKhiari",
+  email: "adnenkhiari484@gmail.com",
+  websiteUrl: process.env.SITE_URL as string,
+  keywords: []
+}
+
 export const metadata: Metadata = {
-  title: 'AdnenKh Tech Portfolio',
-  description: 'Personal Portfolio to showcase who I am',
+  title: {
+    default: metadata_values.title ,
+    template: "%s - AdnenKh Data Science | Software Engineering student Tech Portfolio"
+  },
+  description: metadata_values.description,
+  applicationName: metadata_values.title,
+  referrer: 'origin-when-cross-origin',
+  keywords: metadata_values.keywords,
+  authors: [{ name: metadata_values.author, url:  metadata_values.authorWebsite }],
+  creator: metadata_values.author,
+  publisher: metadata_values.author,
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: false,
+  },
+
+  metadataBase: new URL(metadata_values.websiteUrl),
+  openGraph: {
+    title:metadata_values.title,
+    description: metadata_values.description,
+    url: metadata_values.websiteUrl,
+    siteName: metadata_values.title,
+    images: [
+      {
+        url: metadata_values.websiteUrl+ '/logo-1/logo-color.svg', // Must be an absolute URL
+        width: 800,
+        height: 600,
+        alt: "Portfolio Logo Icon" ,
+        type: "image/svg+xml"
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },  
+
+  icons: {
+    icon: '/logo-1/logo-color.svg',
+    shortcut: '/logo-1/logo-color.svg',
+    apple: '/logo-1/logo-color.svg',
+    other: {
+      url: '/logo-1/logo-color.svg',
+    },
+  },
+  manifest: '/manifest.json',
+  // twitter: {
+  //   card: 'app',
+  //   title: metadata_values.title,
+  //   description: metadata_values.description,
+  //   creator: "@adnendbz",
+  //   images: ['/logo-1/logo-color.svg']
+  // },
+  verification: {
+    google: 'TODO',
+    other: {
+      me: [metadata_values.email, metadata_values.websiteUrl],
+    }
+  }
 }
 
 export default function RootLayout({

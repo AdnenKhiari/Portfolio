@@ -5,6 +5,7 @@ import "./style.css"
 import { getFromFirestore } from '@/app/utils'
 import { motion } from 'framer-motion'
 import Loading from '../TechStackIcons/loading'
+import Link from 'next/link'
 export default function ContactUs() {
   const [info,setData] = useState<any>(null)
 
@@ -47,8 +48,6 @@ viewport={{once:true}}
         viewport={{once:true}}
                     initial={{opacity: 0.5,scaleY:"0%"}}  
                     whileInView={{opacity:1,scaleY: "100%",transition: {delay: 2.2,duration: 0.5}}} 
-
-        
         placeholder='Enter Text !' name="form-text" id="form-text" cols={30} rows={9}></motion.textarea>
       </div>
       <button type='submit' >SUBMIT</button>

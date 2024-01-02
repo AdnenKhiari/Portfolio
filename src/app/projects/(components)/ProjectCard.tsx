@@ -36,7 +36,7 @@ export default function ProjectCard(project : Project) {
     return <div className="project-card" onClick={()=>router.push(`/projects/${project.id}`, { scroll: true })}>
         <Link href={`/projects/${project.id}`}>
             <div className="image-container" style={{width: project.type === "small" ? 600 : 1000,height: 450}}>
-            {iconUrl && <Image src={iconUrl} height={450} width={project.type === "small" ? 600 : 1000} alt='project' />}
+            {iconUrl && <Image src={iconUrl} height={450} width={project.type === "small" ? 600 : 1000} alt={"Projects i realised or collaborated at"} />}
             </div>
         </Link>
         <Link href={`/projects/${project.id}`}>{project.titre}</Link>

@@ -8,8 +8,11 @@ import Education from './experience/(components)/Education/Education'
 import LatestProjects from './projects/(components)/LatestProjects'
 import { getFromFirestore } from './utils'
 import ReactLoading from 'react-loading';
+import { Metadata } from 'next'
 
-
+export const metadata: Metadata = {
+  title: 'Tech Portfolio : About Me'
+}
 
 const Content = ({info} : {info: any})=>{
   return <React.Fragment> 

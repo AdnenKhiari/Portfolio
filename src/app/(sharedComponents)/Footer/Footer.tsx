@@ -11,7 +11,7 @@ export default async function Footer() {
 
     return <footer>
       <div className="footer-left">
-        <Image src="logo-2/logo-color.svg" alt="lel" width={50} height={50}/>
+        <Image src="/logo-2/logo-color.svg" alt="Adnen Khiari Portfolio footer logo" width={50} height={50}/>
         <span className="p-light">Built By : DbzAdnen</span>
       </div>
       <div className="icon-ls">
