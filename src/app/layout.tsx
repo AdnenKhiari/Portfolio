@@ -11,14 +11,14 @@ import {firebaseConfig} from "./config"
 const mont = Montserrat({ subsets: ['latin'] })
 
 
-const metadata_values = {
+export const metadata_values = {
   title: 'Adnen Khiari Data Science | Software Engineering student Tech Portfolio',
   description: "I'm a Data Science | Software Engineering student , Eager to learn and work on projects !",
   author: "Adnen Khiari",
   authorWebsite: "https://github.com/AdnenKhiari",
   email: "adnenkhiari484@gmail.com",
   websiteUrl: process.env.SITE_URL as string,
-  keywords: []
+  keywords: ["tech portfolio","data science","software engineering","developer","student","computer science","junior developer","Machine learning","aws","cloud","cloud students","Deep learning"]
 }
 
 export const metadata: Metadata = {
@@ -119,6 +119,26 @@ export default function RootLayout({
           {children}
           </div>
         <Footer></Footer>
+                                
+        <Script id="chatbot">
+{`  (function (w, d, s, o, f, js, fjs) {
+    w["botsonic_widget"] = o;
+    w[o] =
+      w[o] ||
+      function () {
+        (w[o].q = w[o].q || []).push(arguments);
+      };
+    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+    js.id = o;
+    js.src = f;
+    js.async = 1;
+    fjs.parentNode.insertBefore(js, fjs);
+  })(window, document, "script", "Botsonic", "https://widget.writesonic.com/CDN/botsonic.min.js");
+  Botsonic("init", {
+    serviceBaseUrl: "https://api.botsonic.ai",
+    token: "dcd8e5cc-47e6-4e9b-a0c3-d81d69f822d4",
+  });`}
+</Script>       
       </body>
     </html>
   )

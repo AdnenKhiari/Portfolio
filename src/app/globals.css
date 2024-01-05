@@ -206,3 +206,31 @@ a,button{
 a,button:active{
   transform:  scale(0.9);
 }
+
+
+
+
+
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #98969A #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color:#1e1e1e;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }

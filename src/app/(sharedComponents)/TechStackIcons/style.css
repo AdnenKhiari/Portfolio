@@ -9,13 +9,14 @@
   }
   
   .icon {
-    width: 80px;
+    width: 120px;
     height: 80px;
     /* position: absolute; */
   }
 .icon img{
   object-fit: contain;
   width: 100%;
+  height: 100%;
   transition: all 200ms ease;
 }
 .icon:hover img{
