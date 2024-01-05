@@ -11,7 +11,7 @@ import {firebaseConfig} from "./config"
 const mont = Montserrat({ subsets: ['latin'] })
 
 
-export const metadata_values = {
+const metadata_values = {
   title: 'Adnen Khiari Data Science | Software Engineering student Tech Portfolio',
   description: "I'm a Data Science | Software Engineering student , Eager to learn and work on projects !",
   author: "Adnen Khiari",
