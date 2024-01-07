@@ -13,3 +13,10 @@
     position: sticky;
     top: 0px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .education-exp-container{
+        flex-wrap: wrap;
+    }
+}

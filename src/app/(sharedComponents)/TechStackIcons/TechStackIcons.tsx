@@ -41,8 +41,8 @@ export default function TechStackIcons() {
   useEffect(()=>{
     console.log("W",window)
     setSize(getOffset(ref?.current))
-    if(window)
-    setMaxIcons(Math.floor((window.width ?? 0) / 140))
+    if(window && window.width )
+      setMaxIcons(Math.floor((window.width ?? 0) / (window.width < 700 ? 60 : 140 )))
 
   },[window,ref])
 

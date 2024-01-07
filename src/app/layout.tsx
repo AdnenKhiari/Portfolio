@@ -74,12 +74,12 @@ export const metadata: Metadata = {
   //   creator: "@adnendbz",
   //   images: ['/logo-1/logo-color.svg']
   // },
-  verification: {
-    google: 'TODO',
-    other: {
-      me: [metadata_values.email, metadata_values.websiteUrl],
-    }
-  }
+  // verification: {
+  //   google: 'TODO',
+  //   other: {
+  //     me: [metadata_values.email, metadata_values.websiteUrl],
+  //   }
+  // }
 }
 
 export default function RootLayout({
@@ -101,6 +101,28 @@ export default function RootLayout({
         gtag('config', '${firebaseConfig.measurementId}');
       `}
     </Script>
+
+
+    <Script id="chatbot">
+{`  (function (w, d, s, o, f, js, fjs) {
+    w["botsonic_widget"] = o;
+    w[o] =
+      w[o] ||
+      function () {
+        (w[o].q = w[o].q || []).push(arguments);
+      };
+    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+    js.id = o;
+    js.src = f;
+    js.async = 1;
+    fjs.parentNode.insertBefore(js, fjs);
+  })(window, document, "script", "Botsonic", "https://widget.writesonic.com/CDN/botsonic.min.js");
+  Botsonic("init", {
+    serviceBaseUrl: "https://api.botsonic.ai",
+    token: "dcd8e5cc-47e6-4e9b-a0c3-d81d69f822d4",
+  });`}
+</Script>      
+    
   </div>
       <AnimatedCursor    
         innerSize={8}
@@ -120,25 +142,7 @@ export default function RootLayout({
           </div>
         <Footer></Footer>
                                 
-        <Script id="chatbot">
-{`  (function (w, d, s, o, f, js, fjs) {
-    w["botsonic_widget"] = o;
-    w[o] =
-      w[o] ||
-      function () {
-        (w[o].q = w[o].q || []).push(arguments);
-      };
-    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-    js.id = o;
-    js.src = f;
-    js.async = 1;
-    fjs.parentNode.insertBefore(js, fjs);
-  })(window, document, "script", "Botsonic", "https://widget.writesonic.com/CDN/botsonic.min.js");
-  Botsonic("init", {
-    serviceBaseUrl: "https://api.botsonic.ai",
-    token: "dcd8e5cc-47e6-4e9b-a0c3-d81d69f822d4",
-  });`}
-</Script>       
+  
       </body>
     </html>
   )

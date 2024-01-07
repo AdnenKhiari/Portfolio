@@ -35,7 +35,7 @@ export default function ProjectDetails({data,img} : {data:any,img: string}) {
        { img && <Image priority src={img} fill  alt={"Project i did or collaborated at"} />}
       </div>
       <div className="project-header">
-      <div style={{display: "flex",width: "100%",justifyContent: "space-between"}}>
+      <div className='date-list-skills'>
         <p className="p-light">{data.projectDate && data.projectDate.toDateString()}</p>
         {data.labels?.length > 0 && <motion.div viewport={{once: true}} variants={container_2} whileInView="animate" initial="initial" className="label-container">
           {data.labels?.map((label: any,key: number)=><motion.p variants={item} className="label" key={key}>{label}</motion.p>)}

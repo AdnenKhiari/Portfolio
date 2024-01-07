@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import ProjectInstance from "./ProjectInstance";
+import useWindowDimensions from "@/app/(sharedComponents)/TechStackIcons/useWindow";
 
 const container = {
   show: {
@@ -34,7 +35,7 @@ const reveal_right = {
   }
 }
 export default function ProjectGrid({projects} : { projects: any[]}) {
-
+  const window = useWindowDimensions()
   const router = useRouter()
   return <React.Fragment>
         <motion.h1
@@ -44,7 +45,7 @@ export default function ProjectGrid({projects} : { projects: any[]}) {
         <motion.div variants={container} whileInView="show" initial="hidden">
                 {projects.length > 0 && projects.map((pair,index:number)=>{
 
-          const arr : ["big","small"] = ["big","small"]
+          const arr : ["big","small"] | ["big","big"] = window.width && window.width > 700 ? ["big","small"] : ["big","big"]
           return <React.Fragment key={index}>
                       <span></span>
           <div className="projects-list-row">

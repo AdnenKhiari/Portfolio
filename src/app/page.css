@@ -27,5 +27,10 @@
     }
     .box-container{
         padding: 10px;
+        margin: 0px;
+    }
+    .hero.box-container{
+        margin: 0px;
+
     }
 }

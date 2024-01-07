@@ -11,4 +11,7 @@ article.about-me{
     .display-big{
         font-size: 2.5rem;
     }
+    article.about-me{
+        margin: 20px 0px;   
+    }
 }

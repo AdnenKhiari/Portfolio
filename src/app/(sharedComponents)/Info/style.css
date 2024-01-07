@@ -10,3 +10,13 @@
     text-align: center;
     padding-bottom: 80px;
 }
+@media only screen and (max-width: 700px) {
+    .info-me p:last-child{
+        margin: 20px 0px;
+    }
+    .info-me{
+        margin: 20px auto;
+        padding-bottom: 20px;
+    }
+
+}

@@ -42,10 +42,10 @@
     z-index: 1;
 }
 .projects-list-container .projects-list-row .project-instance h1{
-    width: 550px;
+    max-width: 550px;
 }
 .projects-list-container .projects-list-row .project-instance h1.small{
-    width: 450px;
+    max-width: 450px;
 }
 .projects-list-container .projects-list-row .project-instance .img-container{
     position: absolute;
@@ -91,8 +91,23 @@ transition: all 200ms ease;
 .projects-list-container .projects-list-row .project-instance:hover .link img{
     opacity: 1;
     margin-left: 5px;
-    }
+}
 
+@media only screen and (max-width: 700px) {
+    .projects-list-container .projects-list-row{
+        display: grid;
+        grid-template-columns:  1fr ;
+    }
+    .projects-list-container .projects-list-row:nth-child(odd){
+        grid-template-columns: 1fr;
+    }
+    hr.hr90{
+        display: none;
+    }
+    .projects-list-container{
+margin: 20px auto;
+    }
+}
 @keyframes move {
     0% {
       -webkit-transform-origin: bottom left;

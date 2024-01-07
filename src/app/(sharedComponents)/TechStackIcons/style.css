@@ -30,4 +30,21 @@
   .react-multi-carousel-track {
     height: 100px;
   }
+  .icon {
+    width: 40px;
+  }
+  .react-multi-carousel-list .icon-list {
+    height: 70px;
+  }
+  .react-multi-carousel-item  {
+    height: 70px;
+
+  }
+  .react-multi-carousel-list {
+    height: 60px;
+  }
+  .icon-list{
+    margin: 30px 0px;
+    margin-bottom: 0px;
+  }
 }

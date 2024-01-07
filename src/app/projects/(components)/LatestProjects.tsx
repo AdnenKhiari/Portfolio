@@ -7,9 +7,11 @@ import { useRef } from "react";
 import "./projectcad.css"
 import { useSpring } from "framer-motion"
 import { getFromFirestore } from "@/app/utils";
+import useWindowDimensions from "@/app/(sharedComponents)/TechStackIcons/useWindow";
 
 export default function LatestProjects() {
-
+    
+    const window = useWindowDimensions()
     const targetRef = useRef(null);
     const [data,setData] = useState<Project[]>([])
     const { scrollYProgress } = useScroll({
@@ -72,7 +74,7 @@ export default function LatestProjects() {
     return <section ref={targetRef} className="project-card-parent">
         <div className="project-card-sticky">
             <motion.h1 initial={{x: "-20%",opacity: 0.2}} viewport={{margin:"-50px"}} whileInView={{opacity:1,x:"0%",transition: {delay: 0.1,duration: 0.5}}}>Latest Projects</motion.h1>
-            <motion.div  style={{x: x}} className="project-card-container">
+            <motion.div  style={ window.width && window.width > 1200 ? {x: x} : {}} className="project-card-container">
                 {data && data.map((item,index)=><ProjectCard {...item} key={index} />)}
             </motion.div>
         </div>
