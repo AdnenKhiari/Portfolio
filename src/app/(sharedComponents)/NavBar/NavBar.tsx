@@ -20,8 +20,8 @@ export default function NavBar() {
     { text: 'Home', href: '/' },
     { text: 'Projects', href: '/projects' },
     { text: 'Experience', href: '/experience' },
-    { text: 'CV', href: imgPath },
-    { text: 'Contact', href: '/#contact',scroll: true ,target:"_blank", rel:"noopener noreferrer"}
+    { text: 'CV', href: imgPath ,target:"_", rel:"noopener noreferrer"},
+    { text: 'Contact', href: '/#contact',scroll: true }
   ];
 
   return <header>
