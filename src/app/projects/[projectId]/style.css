@@ -35,13 +35,12 @@
     margin-top: 60px;
 }
 .project-instance article p,.project-instance article img,.project-instance article blockquote {
-    margin: 70px 0px;
+    margin: 10px 0px;
 }
 .project-instance-details {
     margin: 120px auto;
     max-width: 1200px;
 }
-
 .project-header{
     margin: 0 auto;
     max-width: 1200px;
@@ -65,4 +64,16 @@
     .date-list-skills{
         flex-direction: column;
     }
+}
+article p{
+    opacity: 0.6;
+}
+article h1,h2{
+    margin: 30px 0px;
+}
+article h3,h4,h5,h6{
+    margin: 20px 0px;
+}
+article ul,ol {
+    margin: 20px 10px;
 }

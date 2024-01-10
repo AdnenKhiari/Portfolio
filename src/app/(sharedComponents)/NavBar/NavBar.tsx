@@ -21,7 +21,7 @@ export default function NavBar() {
     { text: 'Projects', href: '/projects' },
     { text: 'Experience', href: '/experience' },
     { text: 'CV', href: imgPath },
-    { text: 'Contact', href: '/#contact',scroll: true }
+    { text: 'Contact', href: '/#contact',scroll: true ,target:"_blank", rel:"noopener noreferrer"}
   ];
 
   return <header>
@@ -36,6 +36,8 @@ export default function NavBar() {
             <Link
               href={link.href}
               scroll={link.scroll ?? true}
+              rel={link.rel}
+              target={link.target}
               className={pathname === link.href ? 'active' : ''}
             >
               {link.text}
