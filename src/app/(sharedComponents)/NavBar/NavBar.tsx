@@ -4,15 +4,23 @@ import Link from "next/link";
 import Image from "next/image"
 import "./comp.css"
 import { usePathname } from "next/navigation";
+import {  getPicUrl } from "@/app/utils";
+import { useState } from "react";
 
 export default function NavBar() {
 
   const pathname = usePathname();
-
+  const [imgPath,setImgPath] = useState<string>("")
+  useState(()=>{
+    getPicUrl("/MISC/AdnenKhiariCVNoPhone.pdf").then((img)=>{
+      setImgPath(img)
+    })
+  },[])
   const links = [
     { text: 'Home', href: '/' },
     { text: 'Projects', href: '/projects' },
     { text: 'Experience', href: '/experience' },
+    { text: 'CV', href: imgPath },
     { text: 'Contact', href: '/#contact',scroll: true }
   ];
 
