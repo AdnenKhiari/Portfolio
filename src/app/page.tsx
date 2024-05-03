@@ -5,6 +5,7 @@ import AboutMe from './(sharedComponents)/AboutMe/AboutMe'
 import ContactUs from './(sharedComponents)/Contact/Contact'
 import Experience from './experience/(components)/Experience/Experience'
 import Education from './experience/(components)/Education/Education'
+import Certification from './experience/(components)/Certifications/Certification'
 import LatestProjects from './projects/(components)/LatestProjects'
 import { getFromFirestore } from './utils'
 import ReactLoading from 'react-loading';
@@ -27,6 +28,9 @@ const Content = ({info} : {info: any})=>{
       <section className='experience '>
         <article className='professional boxed '>
           <Experience description={info.sections.experience} />
+        </article>
+        <article className='education boxed'>
+          <Certification description={""}/>
         </article>
         <article className='education boxed'>
           <Education description={info.sections.education}/>

@@ -22,7 +22,10 @@ export default function LatestProjects() {
 
     useEffect(()=>{
         getFromFirestore("projects","order").then((d)=>{
-            console.log(d)
+            console.log("DATA ",d.sort((a : any,b: any)=>a.order - b.order).map((dd: any)=>({
+                titre: dd.titre,
+                order: dd.order
+              })))            
             setData(d.slice(0,3) as Project[])
         })
     },[])
@@ -75,7 +78,7 @@ export default function LatestProjects() {
         <div className="project-card-sticky">
             <motion.h1 initial={{x: "-20%",opacity: 0.2}} viewport={{margin:"-50px"}} whileInView={{opacity:1,x:"0%",transition: {delay: 0.1,duration: 0.5}}}>Latest Projects</motion.h1>
             <motion.div  style={ window.width && window.width > 1200 ? {x: x} : {}} className="project-card-container">
-                {data && data.map((item,index)=><ProjectCard {...item} key={index} />)}
+                {data && data.map((item,index)=><ProjectCard {...item} type="big" key={index} />)}
             </motion.div>
         </div>
     </section>

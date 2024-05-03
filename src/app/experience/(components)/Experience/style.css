@@ -11,6 +11,7 @@
     align-self: left;
     margin-bottom: 15px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.558);
+    background-color: white;
 }
 
 .experience-card .title{

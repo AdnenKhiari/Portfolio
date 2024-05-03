@@ -34,14 +34,14 @@ export default function ProjectCard(project : Project) {
     },[project])
     
     return <div className="project-card" onClick={()=>router.push(`/projects/${project.id}`, { scroll: true })}>
-        <Link href={`/projects/${project.id}`}>
-            <div className="image-container" style={{width: project.type === "small" ? 600 : 1000,height: 450}}>
+        <Link href={`/projects/${project.id}`} >
+            <div className={"image-container"} style={{width: project.type === "small" ? 600 : 1000,height: 450,overflow: "hidden"}}>
             {iconUrl && <Image
                 sizes="100vw"
-            src={iconUrl} layout="fill" alt={"Projects i realised or collaborated at"} />}
+            src={iconUrl} fill alt={"Projects i realised or collaborated at"} />}
             </div>
         </Link>
-        <Link href={`/projects/${project.id}`}>{project.titre}</Link>
+        <h5><Link href={`/projects/${project.id}`}>{project.titre}</Link></h5>
         <motion.p
         initial={{y: "60%",opacity: 0}} viewport={{once: true}}  whileInView={{opacity:1,y:"0%",transition: {duration: 0.3,delay: 0.1}}}
         className="p-light">{project.description}</motion.p>

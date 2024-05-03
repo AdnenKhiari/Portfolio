@@ -1,19 +1,23 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image"
 import { getPicUrl } from "@/app/utils";
+import { use, useEffect, useState } from "react";
 
-export const revalidate = 60
-export default async function  ProjectInstance({type,categorie,title,image,id}: {type: "small" | "big",categorie: string,title: string,image: string,id: string}){
-  const iconUrl = image ? await getPicUrl("PROJECTS/"+image) : null
-
+export default function ProjectInstance({type,categorie,title,image,id}: {type: "small" | "big",categorie: string,title: string,image: string,id: string}){
+  const [iconUrl, setIconUrl] = useState<string | null>(null)
+  useEffect(()=>{
+    getPicUrl("PROJECTS/"+image).then((res) => setIconUrl(res))
+  }
+  ,[])
   
   return <div className="project-instance">
-      <div className={(type === "small" ? "small" : "") + " img-container"}>
-      {iconUrl && <Image  src={iconUrl} alt="Projects i did or collaborated at" width={type === "small" ? 400 : 500} height={type === "small" ?  200 : 350}/>}
+      <div className={(type === "small" ? "small" : "big") + " img-container"}>
+      {iconUrl && <Image fill sizes="100vw" src={iconUrl} alt="Projects i did or collaborated at"/>}
 
       </div>
       <div>
-        <p className={"p-light " }>{categorie}</p>
+        <p className={type === "small" ? "p-light " : ""} style={{translate: "0% -0%",paddingBottom: "10px"}}>{categorie}</p>
         <h1 className={(type === "small" ? "small display-small" : " display-medium ")}>{title}</h1>
       </div>
       <div className="link">

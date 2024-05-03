@@ -14,10 +14,11 @@ export const metadata: Metadata = {
 export default async function AllExperience() {
   const experiences = await getFromFirestore("experiences","order")
   const education = await getFromFirestore("education","order")
+  const certifications = await getFromFirestore("certifications","order")
   
     return (
       <React.Fragment>
-          <ExperienceMain experiences={experiences} education ={education}></ExperienceMain>
+          <ExperienceMain certifications={certifications} experiences={experiences} education ={education}></ExperienceMain>
           <Info></Info>
       </React.Fragment>
     )

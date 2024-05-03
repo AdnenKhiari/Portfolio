@@ -13,8 +13,13 @@
     height: auto;
     object-fit: cover;
 }
-
-.project-card:hover img{
+.img-c-big{
+    max-width: 1000px;
+}
+.img-c-small{
+    max-width: 600px;
+}
+.project-card:hover .image-container img{
     animation: move 10s ease infinite alternate;
 }
 .project-card:hover .image-container{
@@ -22,6 +27,8 @@
 }
 .project-card .image-container{
     overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 .project-card a{
     text-decoration: none;

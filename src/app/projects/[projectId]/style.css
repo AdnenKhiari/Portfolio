@@ -10,7 +10,7 @@
 }
 .project-instance img{
     border: 3px solid var(--bg-secondary);
-    box-shadow: 1px 1px 20px var(--lighter-secondary) ;
+    box-shadow: 1px 1px 20px var(--lighter-secondary);
 }
 .project-instance .label-container {
     display: flex;
@@ -18,11 +18,12 @@
     align-items: center;
     align-content: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 .project-instance .label-container .label {
     text-transform: uppercase;
     background-color: var(--bg-secondary);
-    max-width: max-content;
+    width: max-content;
     padding: 5px 20px;
     margin: 5px 0px 10px 5px;
     border-radius: 100px;
@@ -45,6 +46,11 @@
     margin: 0 auto;
     max-width: 1200px;
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    
 }
 .date-list-skills{
     display: flex;

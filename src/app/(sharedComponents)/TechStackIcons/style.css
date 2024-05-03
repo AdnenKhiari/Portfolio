@@ -2,7 +2,9 @@
   overflow: hidden;
   width: 100%;
 }
-  
+  .icon-list-rtl{
+    direction: 'initial';
+  }
   .icon-list {
     height: 180px;
     width: 100%;
