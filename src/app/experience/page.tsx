@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Experience And Education'
+  title: 'Experience , Certifications And Education'
 }
 
 export default async function AllExperience() {
