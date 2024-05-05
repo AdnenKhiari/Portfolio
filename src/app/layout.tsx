@@ -135,26 +135,7 @@ export default function RootLayout({
         gtag('config', '${firebaseConfig.measurementId}');
       `}
           </Script>
-
-          <Script id="chatbot">
-            {`  (function (w, d, s, o, f, js, fjs) {
-    w["botsonic_widget"] = o;
-    w[o] =
-      w[o] ||
-      function () {
-        (w[o].q = w[o].q || []).push(arguments);
-      };
-    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-    js.id = o;
-    js.src = f;
-    js.async = 1;
-    fjs.parentNode.insertBefore(js, fjs);
-  })(window, document, "script", "Botsonic", "https://widget.writesonic.com/CDN/botsonic.min.js");
-  Botsonic("init", {
-    serviceBaseUrl: "https://api.botsonic.ai",
-    token: "dcd8e5cc-47e6-4e9b-a0c3-d81d69f822d4",
-  });`}
-          </Script>
+          <Script async data-id="1477234871" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></Script>
         </div>
         <AnimatedCursor
           innerSize={8}
