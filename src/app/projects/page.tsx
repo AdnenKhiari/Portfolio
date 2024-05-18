@@ -5,7 +5,7 @@ import ProjectGrid from "./(components)/ProjectGrid";
 import { getFromFirestore } from "../utils";
 import { Project } from "./(components)/ProjectCard";
 import { Metadata } from "next";
-
+import ScrollUp from "./ScrollUp";
 export const revalidate = 60
 
 export const metadata: Metadata = {
@@ -35,6 +35,7 @@ export default async function Projects() {
   } as any)))
 
   return <section className="projects-list-container">
+      <ScrollUp x={0} y={0}/>
       <ProjectGrid projects={projects}></ProjectGrid>
     <Info/>
   </section>

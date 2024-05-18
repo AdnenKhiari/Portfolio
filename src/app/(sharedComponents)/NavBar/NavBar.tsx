@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image"
 import "./comp.css"
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {  getPicUrl } from "@/app/utils";
 import { useEffect, useState } from "react";
 
@@ -11,6 +11,9 @@ export default function NavBar() {
 
   const pathname = usePathname();
   const [imgPath,setImgPath] = useState<string>("")
+  const router = useRouter();
+
+
   useEffect(()=>{
     getPicUrl("/MISC/AdnenKhiariCVNoPhone.pdf").then((img)=>{
       setImgPath(img)
@@ -35,10 +38,17 @@ export default function NavBar() {
           <li key={link.href}>
             <Link
               href={link.href}
-              scroll={link.scroll ?? true}
+              scroll={true}
               rel={link.rel}
               target={link.target}
               className={pathname === link.href ? 'active' : ''}
+              onClick={() => {
+                if (link.scroll) {
+                  setTimeout(() => {
+                    window.document.scrollingElement?.scrollTo(10000,10000)
+                  }, 1000);
+                }
+              }}
             >
               {link.text}
             </Link>
